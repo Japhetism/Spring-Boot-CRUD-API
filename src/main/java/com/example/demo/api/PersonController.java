@@ -1,5 +1,6 @@
 package com.example.demo.api;
 
+import com.example.demo.exception.ApiRequestException;
 import com.example.demo.model.Person;
 import com.example.demo.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,8 @@ public class PersonController {
 
     @GetMapping
     public List<Person> getAllPeople() {
-        return personService.getAllPeople();
+        throw new ApiRequestException("Ooops cannot get all students with custom exception");
+        //return personService.getAllPeople();
     }
 
     @GetMapping(path = "{id}")
